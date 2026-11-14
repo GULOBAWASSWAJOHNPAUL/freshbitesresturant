@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserve a table at Fresh Bites Restaurant.">
+  <title>Reservations | Fresh Bites Restaurant</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Fresh <span>Bites</span></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about%20us.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reservations.html">Reservations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-banner">
+    <div>
+      <p class="section-label">Plan Your Visit</p>
+      <h1>Make a Reservation</h1>
+      <p>Book your table at Fresh Bites Restaurant.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="reservation-section container">
+
+      <div class="reservation-text">
+        <p class="section-label">Reserve Your Table</p>
+        <h2>Enjoy a fresh dining experience</h2>
+
+        <p>
+          Complete the form to request a table. Our team will contact you
+          to confirm your reservation.
+        </p>
+
+        <div class="reservation-note">
+          <strong>Opening Hours</strong>
+          <p>Monday – Sunday: 8:00 AM – 10:00 PM</p>
+        </div>
+
+        <div class="reservation-note">
+          <strong>Need help?</strong>
+          <p>
+            Call us on
+            <a href="tel:+256709792543">+256 709792543 </a>
+            or WhatsApp
+            <a href="https://wa.me/256709792543">+256 709792543</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="reservation-form-box">
+        <form action="submit-request.php" method="post">
+          <input type="hidden" name="request_type" value="reservation">
+
+          <label for="full-name">Full Name</label>
+          <input
+            type="text"
+            id="full-name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          >
+
+          <label for="reservation-email">Email Address</label>
+          <input
+            type="email"
+            id="reservation-email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          >
+
+          <label for="reservation-phone">Phone Number</label>
+          <input
+            type="tel"
+            id="reservation-phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          >
+
+          <label for="reservation-date">Reservation Date</label>
+          <input
+            type="date"
+            id="reservation-date"
+            name="date"
+            required
+          >
+
+          <label for="reservation-time">Reservation Time</label>
+          <input
+            type="time"
+            id="reservation-time"
+            name="time"
+            required
+          >
+
+          <label for="guests">Number of Guests</label>
+          <select id="guests" name="guests" required>
+            <option value="">Select number of guests</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6 Guests</option>
+            <option value="7-plus">7 or more Guests</option>
+          </select>
+
+          <label for="special-request">Special Request</label>
+          <textarea
+            id="special-request"
+            name="special-request"
+            rows="5"
+            placeholder="Tell us about any special requests..."
+          ></textarea>
+
+          <button type="submit" class="button">
+            Request Reservation
+          </button>
+
+        </form>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Fresh Bites Restaurant. All rights reserved.</p>
+
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

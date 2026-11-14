@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Place an order request with Fresh Bites Restaurant.">
+  <title>Order | Fresh Bites Restaurant</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Fresh <span>Bites</span></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="about%20us.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reservations.html">Reservations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-banner">
+    <div>
+      <p class="section-label">Fresh Bites</p>
+      <h1>Place an Order</h1>
+      <p>Send us your order request and our team will contact you to confirm it.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="reservation-section container">
+      <div class="reservation-text">
+        <p class="section-label">Order Request</p>
+        <h2>Tell us what you would like</h2>
+        <p>
+          This form sends an order request, not a payment. We will call or
+          message you to confirm availability, delivery, and the total.
+        </p>
+
+        <div class="reservation-note">
+          <strong>Need help?</strong>
+          <p>
+            Call us on
+            <a href="tel:+256709792543">+256 709792543</a>
+            or WhatsApp
+            <a href="https://wa.me/256709792543">+256 709792543</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="reservation-form-box">
+        <form action="submit-request.php" method="post">
+          <input type="hidden" name="request_type" value="order">
+
+          <label for="order-name">Full Name</label>
+          <input
+            type="text"
+            id="order-name"
+            name="name"
+            maxlength="100"
+            autocomplete="name"
+            required
+          >
+
+          <label for="order-email">Email Address</label>
+          <input
+            type="email"
+            id="order-email"
+            name="email"
+            maxlength="254"
+            autocomplete="email"
+            required
+          >
+
+          <label for="order-phone">Phone Number</label>
+          <input
+            type="tel"
+            id="order-phone"
+            name="phone"
+            maxlength="25"
+            autocomplete="tel"
+            placeholder="+256 7XX XXX XXX"
+            required
+          >
+
+          <label for="order-details">Order (include meal quantities)</label>
+          <textarea
+            id="order-details"
+            name="order_details"
+            rows="4"
+            maxlength="1200"
+            placeholder="For example: 2 Caribbean Jerk Chicken, 1 Fresh Fruit Juice"
+            required
+          ></textarea>
+
+          <label for="fulfillment">Pickup or delivery</label>
+          <select id="fulfillment" name="fulfillment" required>
+            <option value="">Select one</option>
+            <option value="Pickup">Pickup</option>
+            <option value="Delivery">Delivery</option>
+          </select>
+
+          <label for="delivery-address">Delivery address (if applicable)</label>
+          <textarea
+            id="delivery-address"
+            name="delivery_address"
+            rows="3"
+            maxlength="500"
+            placeholder="Enter your delivery address"
+          ></textarea>
+
+          <label for="order-notes">Additional notes (optional)</label>
+          <textarea
+            id="order-notes"
+            name="notes"
+            rows="3"
+            maxlength="500"
+            placeholder="Any other instructions?"
+          ></textarea>
+
+          <button type="submit" class="button">Send Order Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Fresh Bites Restaurant. All rights reserved.</p>
+
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const item = new URLSearchParams(window.location.search).get("item");
+    const orderDetails = document.getElementById("order-details");
+    const menuItems = [
+      "Caribbean Jerk Chicken",
+      "Caribbean Jerk Chicken Pasta",
+      "Anthoney Pizza",
+      "Fresh Garden Salad",
+      "Grilled Fish",
+      "Fresh Fruit Juice"
+    ];
+
+    if (item && menuItems.includes(item)) {
+      orderDetails.value = `1 ${item}`;
+    }
+
+    const fulfillment = document.getElementById("fulfillment");
+    const deliveryAddress = document.getElementById("delivery-address");
+
+    function updateDeliveryAddressRequirement() {
+      deliveryAddress.required = fulfillment.value === "Delivery";
+    }
+
+    fulfillment.addEventListener("change", updateDeliveryAddressRequirement);
+    updateDeliveryAddressRequirement();
+  </script>
+
+</body>
+</html>
